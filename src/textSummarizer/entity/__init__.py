@@ -29,3 +29,10 @@ class DataTransformationConfig:
     root_dir: Path
     data_path: Path
     tokenizer_name: Path
+
+@dataclass(frozen=True)
+# The DataTransformationConfig class is used for configuring data transformation operations.
+class DataTransformationConfig:
+    root_dir: Path
+    data_path: Path
+    tokenizer_name: Path
