@@ -13,7 +13,7 @@ class ModelTrainer:
 
 
     
-    def train(self):
+    def train(self, fine_tuning = False):
         device = "cuda" if torch.cuda.is_available() else "cpu"
         tokenizer = AutoTokenizer.from_pretrained(self.config.model_ckpt)
         model_pegasus = AutoModelForSeq2SeqLM.from_pretrained(self.config.model_ckpt).to(device)
@@ -44,7 +44,8 @@ class ModelTrainer:
                   train_dataset=dataset_samsum_pt["train"], 
                   eval_dataset=dataset_samsum_pt["validation"])
         
-        trainer.train()
+        if fine_tuning:
+            trainer.train()
 
         ## Save model
         model_pegasus.save_pretrained(os.path.join(self.config.root_dir,"pegasus-samsum-model"))
