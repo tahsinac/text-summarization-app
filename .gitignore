@@ -132,6 +132,9 @@ venv.bak/
 # Logs
 logs/
 
+# artifacts
+artifacts/
+
 # Spyder project settings
 .spyderproject
 .spyproject
