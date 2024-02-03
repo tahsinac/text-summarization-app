@@ -18,6 +18,11 @@ class ConfigurationManager:
     
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
+        """
+        The function `get_data_ingestion_config` returns a `DataIngestionConfig` object with values from
+        the `config` object.
+        :return: an instance of the DataIngestionConfig class.
+        """
         config = self.config.data_ingestion
 
         create_directories([config.root_dir])
